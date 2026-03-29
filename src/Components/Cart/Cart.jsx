@@ -8,8 +8,8 @@ const Cart = ({ selectedData, setselectedData }) => {
         setselectedData([]);
         toast.success("All Payment Successful")
     };
-    const handleDelete = (item) =>{
-        const filteredCart = selectedData.filter(c=> c.id !== item.id);
+    const handleDelete = (item) => {
+        const filteredCart = selectedData.filter(c => c.id !== item.id);
         setselectedData(filteredCart);
         toast.error(`${item.title} was Delete `)
     }
@@ -32,10 +32,12 @@ const Cart = ({ selectedData, setselectedData }) => {
                                     </div>
 
                                 </div>
-                                <div >
-                                    <h2 className='text-3xl font-bold'>${data.price}/month</h2>
+                                <div className='flex'>
+                                    <div >
+                                        <h2 className='text-3xl font-bold'>${data.price}/month</h2>
+                                    </div>
+                                    <button onClick={() => handleDelete(data)} className='ml-[15px] btn rounded-full'>X</button>
                                 </div>
-                                <button onClick={()=>handleDelete(data)} className='ml-[15px] btn rounded-full'>X</button>
 
                             </div>)
                         }
